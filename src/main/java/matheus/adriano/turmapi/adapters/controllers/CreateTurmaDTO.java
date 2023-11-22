@@ -16,17 +16,14 @@ public class CreateTurmaDTO {
         @NotNull
         private  Integer ano;
         @NotNull
-
-    private  Integer semestre;
+        private  Integer semestre;
         @NotBlank
         @Length(min = 3)
         private String nome;
-    @NotNull
-
-    private Integer minVagas;
-    @NotNull
-
-    private  Integer maxVagas;
+        @NotNull
+        private Integer minVagas;
+        @NotNull
+        private  Integer maxVagas;
         public CreateTurmaDTO(String sigla, Integer ano, Integer semestre, String nome, Integer minVagas, Integer maxVagas) {
             this.sigla = sigla;
             this.ano = ano;
