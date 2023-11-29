@@ -41,7 +41,10 @@ public class AlunoService {
         return matricula;
     }
     public Aluno getByCpf (String cpf) {
-        return alunoRepository.findById(cpf).orElseThrow(()->new RuntimeException("Aluno não existe"));
+
+       Aluno a = alunoRepository.findById(cpf).orElseThrow(()->new RuntimeException("Aluno não existe"));
+
+       return a;
     }
 
     public List<Aluno> findAll(){
@@ -49,4 +52,11 @@ public class AlunoService {
     }
 
 
+    public Matricula getMatriculas(String id) {
+        return matriculaRepository.findById(id).orElseThrow(()->new RuntimeException("Matricula não existe"));
+    }
+
+    public List<Matricula> getMatriculass() {
+        return matriculaRepository.findAll();
+    }
 }

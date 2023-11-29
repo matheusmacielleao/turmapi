@@ -29,14 +29,21 @@ public class AlunoController {
         return this.alunoService.matricularAluno(cpf,matricula.getSiglaTurma());
     }
 
+    @GetMapping("/{cpf}/matriculas/{id}")
+    public Matricula getMatricula(@PathVariable String id){
+        return this.alunoService.getMatriculas(id);
+    }
+
     @GetMapping("/{cpf}/matriculas")
-    public List<Matricula> getMatriculas(@PathVariable String cpf){
-        return this.alunoService.getByCpf(cpf).getMatriculas();
+    public List<Matricula> getMatricula(){
+        return this.alunoService.getMatriculass();
     }
 
     @GetMapping("/{cpf}")
     public Aluno getByCpf(@PathVariable String cpf){
-        return this.alunoService.getByCpf(cpf);
+
+        Aluno aluno =  this.alunoService.getByCpf(cpf);
+        return aluno;
     }
 
     @GetMapping()

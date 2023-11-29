@@ -1,5 +1,7 @@
 package matheus.adriano.turmapi.domain.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -29,9 +31,8 @@ public class Turma {
     private Integer minVagas;
     @Column
     private  Integer maxVagas;
-    @JsonManagedReference
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "turma")
-    @Fetch(FetchMode.JOIN)
+    @JsonIgnore
+    @OneToMany(mappedBy = "turma")
     private List<Matricula> matriculas;
     public Turma(String sigla, Integer ano, Integer semestre, String nome, Integer minVagas, Integer maxVagas) {
         this.id = sigla+"-"+ano+"-"+semestre;
